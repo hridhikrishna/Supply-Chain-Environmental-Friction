@@ -1,9 +1,9 @@
-from datetime import datetime
+import os
+import folium
 import pandas as pd
 import requests
 
-# 1. Define Key Logistics Checkpoints (e.g., Wayanad-to-Calicut Mountain Corridor)
-# Format: {"name": "Checkpoint Name", "lat": latitude, "lon": longitude}
+# 1. Define Key Logistics Checkpoints along the Freight Corridor
 ROUTE_CHECKPOINTS = [
     {"name": "Thamarassery Churam (Hairpin 9)", "lat": 11.4885, "lon": 76.0822},
     {"name": "Vythiri Pass Summit", "lat": 11.5515, "lon": 76.0448},
@@ -11,7 +11,7 @@ ROUTE_CHECKPOINTS = [
     {"name": "Sulthan Bathery Foothills", "lat": 11.6667, "lon": 76.2667},
 ]
 
-print("Evaluating environmental friction and hazard scores for transit route...")
+print("Evaluating environmental friction scores for transit checkpoints...")
 
 checkpoint_reports = []
 
@@ -19,34 +19,28 @@ checkpoint_reports = []
 def calculate_friction_score(weather):
   """Calculates an environmental friction score (0-100) based on weather risks."""
   score = 0.0
+  wind_speed = weather.get("wind_speed_10m", 0)
+  precipitation = weather.get("precipitation", 0)
+  visibility = weather.get("visibility", 10000)
 
-  # Extract variables (defaults to safe values if missing)
-  wind_speed = weather.get("wind_speed_10m", 0)  # km/h
-  precipitation = weather.get("precipitation", 0)  # mm
-  visibility = weather.get("visibility", 10000)  # meters
-
-  # 1. Wind Hazard (High crosswinds on mountain passes)
   if wind_speed > 40:
     score += 40
   elif wind_speed > 25:
     score += 20
 
-  # 2. Precipitation/Rain Hazard (Slip risk / hydroplaning)
   if precipitation > 10:
     score += 40
   elif precipitation > 2:
     score += 20
 
-  # 3. Visibility / Fog Hazard (Reduced reaction time)
-  if visibility < 1000:  # Dense fog
+  if visibility < 1000:
     score += 30
-  elif visibility < 4000:  # Moderate mist/fog
+  elif visibility < 4000:
     score += 15
 
   return min(score, 100.0)
 
 
-# 2. Query Open-Meteo Free Weather API for each checkpoint
 for cp in ROUTE_CHECKPOINTS:
   url = (
       f"https://api.open-meteo.com/v1/forecast?latitude={cp['lat']}&longitude={cp['lon']}"
@@ -61,32 +55,57 @@ for cp in ROUTE_CHECKPOINTS:
 
     score = calculate_friction_score(current)
 
-    # Determine status level
     if score >= 50:
       status = "HIGH FRICTION / HAZARD"
+      color = "red"
     elif score >= 20:
       status = "MODERATE CAUTION"
+      color = "orange"
     else:
       status = "CLEAR / NORMAL"
+      color = "green"
 
     checkpoint_reports.append({
-        "Checkpoint": cp["name"],
-        "Latitude": cp["lat"],
-        "Longitude": cp["lon"],
-        "Wind (km/h)": current.get("wind_speed_10m"),
-        "Precipitation (mm)": current.get("precipitation"),
-        "Visibility (m)": current.get("visibility"),
-        "Friction Score": score,
-        "Status": status,
+        "name": cp["name"],
+        "lat": cp["lat"],
+        "lon": cp["lon"],
+        "wind": current.get("wind_speed_10m", 0),
+        "precip": current.get("precipitation", 0),
+        "visibility": current.get("visibility", 10000),
+        "score": score,
+        "status": status,
+        "color": color,
     })
-
   except Exception as e:
     print(f"Error fetching data for {cp['name']}: {e}")
 
-# 3. Convert to DataFrame & Print Report
-df_report = pd.DataFrame(checkpoint_reports)
-print("\n--- Supply Chain Environmental Friction Report ---")
-print(df_report.to_string(index=False))
+# 2. Generate Interactive Map
+supply_map = folium.Map(location=[11.5515, 76.0448], zoom_start=11)
 
-# Optional: Save report to CSV or HTML for your dashboard
-df_report.to_csv("friction_report.csv", index=False)
+folium.TileLayer(
+    tiles="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    attr="OpenStreetMap",
+    name="Street Map",
+).add_to(supply_map)
+
+for pt in checkpoint_reports:
+  popup_text = f"""
+        <b>Checkpoint:</b> {pt['name']}<br>
+        <b>Status:</b> <span style="color:{pt['color']}; font-weight:bold;">{pt['status']}</span><br>
+        <b>Friction Score:</b> {pt['score']}/100<br>
+        <b>Wind Speed:</b> {pt['wind']} km/h<br>
+        <b>Precipitation:</b> {pt['precip']} mm<br>
+        <b>Visibility:</b> {pt['visibility']} m
+    """
+  folium.Marker(
+      location=[pt["lat"], pt["lon"]],
+      popup=folium.Popup(popup_text, max_width=300),
+      icon=folium.Icon(color=pt["color"], icon="info-sign"),
+  ).add_to(supply_map)
+
+# Save map and historical log
+supply_map.save("index.html")
+pd.DataFrame(checkpoint_reports).to_csv(
+    "logistics_friction_log.csv", index=False
+)
+print("Generated fresh supply chain environmental friction map & log.")
