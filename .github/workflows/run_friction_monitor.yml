@@ -22,11 +22,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests pandas folium
+          pip install requests pandas folium tabulate
 
       - name: Run friction script
         run: |
           python friction_monitor.py
+
+      - name: Publish Alert Summary to GitHub Dashboard
+        run: |
+          if [ -f alert_summary.md ]; then
+            cat alert_summary.md >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Commit and push updated map
         run: |
@@ -34,7 +40,7 @@ jobs:
             git config --global user.name "github-actions[bot]"
             git config --global user.email "github-actions[bot]@users.noreply.github.io"
             git add index.html logistics_friction_log.csv
-            git commit -m "Auto-update supply chain friction map [skip ci]" || echo "No changes to commit"
+            git commit -m "Auto-update friction map and metrics [skip ci]" || echo "No changes to commit"
             git pull origin main --rebase || echo "Rebase not needed"
             git push
           else
