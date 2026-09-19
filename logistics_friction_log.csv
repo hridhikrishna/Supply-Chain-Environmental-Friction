@@ -1,5 +1,5 @@
 name,lat,lon,wind,precip,visibility,score,status,color
-Thamarassery Churam (Hairpin 9),11.4885,76.0822,0.7,0.0,200.0,30.0,LOW VISIBILITY WARNING,orange
-Vythiri Pass Summit,11.5515,76.0448,1.8,0.0,600.0,30.0,LOW VISIBILITY WARNING,orange
-Kalpetta Highway Junction,11.6054,76.083,0.5,0.0,6280.0,0.0,CLEAR / NORMAL,green
-Sulthan Bathery Foothills,11.6667,76.2667,2.9,0.0,480.0,30.0,LOW VISIBILITY WARNING,orange
+Thamarassery Churam (Hairpin 9),11.4885,76.0822,0.8,0.0,240.0,30.0,LOW VISIBILITY WARNING,orange
+Vythiri Pass Summit,11.5515,76.0448,0.0,0.0,9360.0,0.0,CLEAR / NORMAL,green
+Kalpetta Highway Junction,11.6054,76.083,2.2,0.0,5420.0,0.0,CLEAR / NORMAL,green
+Sulthan Bathery Foothills,11.6667,76.2667,2.7,0.0,4020.0,0.0,CLEAR / NORMAL,green
