@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2e07ae422d3fe027d3bf1017df24c3f8 {
+                #map_035c0d8ccef656a2993b2a076ba8f39b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,14 +54,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_2e07ae422d3fe027d3bf1017df24c3f8" ></div>
+            <div class="folium-map" id="map_035c0d8ccef656a2993b2a076ba8f39b" ></div>
         
 </body>
 <script>
     
     
-            var map_2e07ae422d3fe027d3bf1017df24c3f8 = L.map(
-                "map_2e07ae422d3fe027d3bf1017df24c3f8",
+            var map_035c0d8ccef656a2993b2a076ba8f39b = L.map(
+                "map_035c0d8ccef656a2993b2a076ba8f39b",
                 {
                     center: [11.5515, 76.0448],
                     crs: L.CRS.EPSG3857,
@@ -78,7 +78,7 @@
 
         
     
-            var tile_layer_6b9b2534e6bc5997a7b94b3a2b08b218 = L.tileLayer(
+            var tile_layer_1b359e6b79235bb8f3f3b4b16a00cd54 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,10 +95,10 @@
             );
         
     
-            tile_layer_6b9b2534e6bc5997a7b94b3a2b08b218.addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            tile_layer_1b359e6b79235bb8f3f3b4b16a00cd54.addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var tile_layer_1de4893ddc84a464711b68c26f60aa4f = L.tileLayer(
+            var tile_layer_0db5552351317060b5f9be574920b104 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -115,19 +115,19 @@
             );
         
     
-            tile_layer_1de4893ddc84a464711b68c26f60aa4f.addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            tile_layer_0db5552351317060b5f9be574920b104.addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var marker_9a15ba0246409069f31d247308c0f3d7 = L.marker(
+            var marker_ab480f7dcd5af764f46c4659a137ba2f = L.marker(
                 [11.4885, 76.0822],
                 {
 }
-            ).addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            ).addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var icon_4a4b0afdafdc57bcad3effab0541e9e9 = L.AwesomeMarkers.icon(
+            var icon_197d9b2a753b9b56a6eab0dc358f74de = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "orange",
   "iconColor": "white",
   "icon": "info-sign",
   "prefix": "glyphicon",
@@ -136,34 +136,34 @@
             );
         
     
-        var popup_9baf1ddec269ea8d0b513db6078c382a = L.popup({
+        var popup_e6ec770602a13af0b90272275e2d04fb = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2831f4135eae374378a659e332433cba = $(`<div id="html_2831f4135eae374378a659e332433cba" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Thamarassery Churam (Hairpin 9)<br>         <b>Status:</b> <span style="color:green; font-weight:bold;">CLEAR / NORMAL</span><br>         <b>Friction Score:</b> 0.0/100<br>         <b>Wind Speed:</b> 6.1 km/h<br>         <b>Precipitation:</b> 0.2 mm<br>         <b>Visibility:</b> 5700.0 m     </div>`)[0];
-                popup_9baf1ddec269ea8d0b513db6078c382a.setContent(html_2831f4135eae374378a659e332433cba);
+                var html_29c3805dbf4a9aa826a85c2303171616 = $(`<div id="html_29c3805dbf4a9aa826a85c2303171616" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Thamarassery Churam (Hairpin 9)<br>         <b>Status:</b> <span style="color:orange; font-weight:bold;">LOW VISIBILITY WARNING</span><br>         <b>Friction Score:</b> 30.0/100<br>         <b>Wind Speed:</b> 3.9 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 240.0 m     </div>`)[0];
+                popup_e6ec770602a13af0b90272275e2d04fb.setContent(html_29c3805dbf4a9aa826a85c2303171616);
             
         
 
-        marker_9a15ba0246409069f31d247308c0f3d7.bindPopup(popup_9baf1ddec269ea8d0b513db6078c382a)
+        marker_ab480f7dcd5af764f46c4659a137ba2f.bindPopup(popup_e6ec770602a13af0b90272275e2d04fb)
         ;
 
         
     
     
-                marker_9a15ba0246409069f31d247308c0f3d7.setIcon(icon_4a4b0afdafdc57bcad3effab0541e9e9);
+                marker_ab480f7dcd5af764f46c4659a137ba2f.setIcon(icon_197d9b2a753b9b56a6eab0dc358f74de);
             
     
-            var marker_f4def138ec539f928d976ccecc45d232 = L.marker(
+            var marker_62211ff88f6ac62217f943fd2e28e084 = L.marker(
                 [11.5515, 76.0448],
                 {
 }
-            ).addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            ).addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var icon_a1e8cf92b56af190492ec6cef404bc18 = L.AwesomeMarkers.icon(
+            var icon_4e875c57897b4e94701dbfd4f7cecd12 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -174,36 +174,36 @@
             );
         
     
-        var popup_43e510eac51165f86fa2e9bcadc5b290 = L.popup({
+        var popup_c7742f5fde2a287965482c99d616954d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c90ee186ab566f634e8491d7a93d4bc8 = $(`<div id="html_c90ee186ab566f634e8491d7a93d4bc8" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Vythiri Pass Summit<br>         <b>Status:</b> <span style="color:green; font-weight:bold;">CLEAR / NORMAL</span><br>         <b>Friction Score:</b> 0.0/100<br>         <b>Wind Speed:</b> 8.4 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 17780.0 m     </div>`)[0];
-                popup_43e510eac51165f86fa2e9bcadc5b290.setContent(html_c90ee186ab566f634e8491d7a93d4bc8);
+                var html_10c221b18ddfce4f75b04339acec932c = $(`<div id="html_10c221b18ddfce4f75b04339acec932c" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Vythiri Pass Summit<br>         <b>Status:</b> <span style="color:green; font-weight:bold;">CLEAR / NORMAL</span><br>         <b>Friction Score:</b> 15.0/100<br>         <b>Wind Speed:</b> 1.5 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 1580.0 m     </div>`)[0];
+                popup_c7742f5fde2a287965482c99d616954d.setContent(html_10c221b18ddfce4f75b04339acec932c);
             
         
 
-        marker_f4def138ec539f928d976ccecc45d232.bindPopup(popup_43e510eac51165f86fa2e9bcadc5b290)
+        marker_62211ff88f6ac62217f943fd2e28e084.bindPopup(popup_c7742f5fde2a287965482c99d616954d)
         ;
 
         
     
     
-                marker_f4def138ec539f928d976ccecc45d232.setIcon(icon_a1e8cf92b56af190492ec6cef404bc18);
+                marker_62211ff88f6ac62217f943fd2e28e084.setIcon(icon_4e875c57897b4e94701dbfd4f7cecd12);
             
     
-            var marker_d228cb58651edd0708af107faa26fee4 = L.marker(
+            var marker_338522a219b6716d8ab901ec01aac2cc = L.marker(
                 [11.6054, 76.083],
                 {
 }
-            ).addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            ).addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var icon_4b6b49293e6b42c540b28d43649d3173 = L.AwesomeMarkers.icon(
+            var icon_d1110bd99566b0ecb8541f252395de8f = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "orange",
   "iconColor": "white",
   "icon": "info-sign",
   "prefix": "glyphicon",
@@ -212,36 +212,36 @@
             );
         
     
-        var popup_dad87ff244a66c01e194366e7846713c = L.popup({
+        var popup_d1220bad17f87509e62ac0cd1458d4d4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6b27c53ae432247681792e31e12ec2e4 = $(`<div id="html_6b27c53ae432247681792e31e12ec2e4" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Kalpetta Highway Junction<br>         <b>Status:</b> <span style="color:green; font-weight:bold;">CLEAR / NORMAL</span><br>         <b>Friction Score:</b> 0.0/100<br>         <b>Wind Speed:</b> 9.0 km/h<br>         <b>Precipitation:</b> 0.1 mm<br>         <b>Visibility:</b> 13420.0 m     </div>`)[0];
-                popup_dad87ff244a66c01e194366e7846713c.setContent(html_6b27c53ae432247681792e31e12ec2e4);
+                var html_7d5b8215fee700e3e3d7d83fab68626d = $(`<div id="html_7d5b8215fee700e3e3d7d83fab68626d" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Kalpetta Highway Junction<br>         <b>Status:</b> <span style="color:orange; font-weight:bold;">LOW VISIBILITY WARNING</span><br>         <b>Friction Score:</b> 30.0/100<br>         <b>Wind Speed:</b> 1.9 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 560.0 m     </div>`)[0];
+                popup_d1220bad17f87509e62ac0cd1458d4d4.setContent(html_7d5b8215fee700e3e3d7d83fab68626d);
             
         
 
-        marker_d228cb58651edd0708af107faa26fee4.bindPopup(popup_dad87ff244a66c01e194366e7846713c)
+        marker_338522a219b6716d8ab901ec01aac2cc.bindPopup(popup_d1220bad17f87509e62ac0cd1458d4d4)
         ;
 
         
     
     
-                marker_d228cb58651edd0708af107faa26fee4.setIcon(icon_4b6b49293e6b42c540b28d43649d3173);
+                marker_338522a219b6716d8ab901ec01aac2cc.setIcon(icon_d1110bd99566b0ecb8541f252395de8f);
             
     
-            var marker_b43780f30008c01ac7a07f5a0cfd44ec = L.marker(
+            var marker_e4398907477c73b255b42568c5e2b0c3 = L.marker(
                 [11.6667, 76.2667],
                 {
 }
-            ).addTo(map_2e07ae422d3fe027d3bf1017df24c3f8);
+            ).addTo(map_035c0d8ccef656a2993b2a076ba8f39b);
         
     
-            var icon_9269c4fb531eb2ed7201a642a0f8fc4b = L.AwesomeMarkers.icon(
+            var icon_05b34954f6f5edda9b0abbc3188edae7 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "orange",
   "iconColor": "white",
   "icon": "info-sign",
   "prefix": "glyphicon",
@@ -250,24 +250,24 @@
             );
         
     
-        var popup_2b6bf3310dec234e0b925be9b21986a1 = L.popup({
+        var popup_0f28043507893ca112616405986e6afa = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a4542a542a06508160652b74eed50838 = $(`<div id="html_a4542a542a06508160652b74eed50838" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Sulthan Bathery Foothills<br>         <b>Status:</b> <span style="color:green; font-weight:bold;">CLEAR / NORMAL</span><br>         <b>Friction Score:</b> 0.0/100<br>         <b>Wind Speed:</b> 10.5 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 12560.0 m     </div>`)[0];
-                popup_2b6bf3310dec234e0b925be9b21986a1.setContent(html_a4542a542a06508160652b74eed50838);
+                var html_ba13a2d9f637bf1db48f760ec3fbfde0 = $(`<div id="html_ba13a2d9f637bf1db48f760ec3fbfde0" style="width: 100.0%; height: 100.0%;">         <b>Checkpoint:</b> Sulthan Bathery Foothills<br>         <b>Status:</b> <span style="color:orange; font-weight:bold;">LOW VISIBILITY WARNING</span><br>         <b>Friction Score:</b> 30.0/100<br>         <b>Wind Speed:</b> 0.6 km/h<br>         <b>Precipitation:</b> 0.0 mm<br>         <b>Visibility:</b> 320.0 m     </div>`)[0];
+                popup_0f28043507893ca112616405986e6afa.setContent(html_ba13a2d9f637bf1db48f760ec3fbfde0);
             
         
 
-        marker_b43780f30008c01ac7a07f5a0cfd44ec.bindPopup(popup_2b6bf3310dec234e0b925be9b21986a1)
+        marker_e4398907477c73b255b42568c5e2b0c3.bindPopup(popup_0f28043507893ca112616405986e6afa)
         ;
 
         
     
     
-                marker_b43780f30008c01ac7a07f5a0cfd44ec.setIcon(icon_9269c4fb531eb2ed7201a642a0f8fc4b);
+                marker_e4398907477c73b255b42568c5e2b0c3.setIcon(icon_05b34954f6f5edda9b0abbc3188edae7);
             
 </script>
 </html>
