@@ -1,3 +1,4 @@
 name,lat,lon,wind,precip,visibility,score,status,color
-Kalpetta Highway Junction,11.6054,76.083,5.8,0.0,180.0,30.0,LOW VISIBILITY WARNING,orange
-Sulthan Bathery Foothills,11.6667,76.2667,7.0,0.0,860.0,30.0,LOW VISIBILITY WARNING,orange
+Vythiri Pass Summit,11.5515,76.0448,5.1,0.2,4940.0,0.0,CLEAR / NORMAL,green
+Kalpetta Highway Junction,11.6054,76.083,3.6,0.1,6480.0,0.0,CLEAR / NORMAL,green
+Sulthan Bathery Foothills,11.6667,76.2667,4.3,0.1,3940.0,15.0,CLEAR / NORMAL,green
